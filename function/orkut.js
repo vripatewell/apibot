@@ -101,12 +101,10 @@ async function createQRIS(amount, codeqr) {
         const uploadedFile = await elxyzFile(buffer);
 
         return {
-            idtransaksi: generateTransactionId(),
-            jumlah: amount,
-            expired: generateExpirationTime(),
-            imageqris: { 
-            url: uploadedFile
-            }
+            transactionId: generateTransactionId(),
+            amount: amount,
+            expirationTime: generateExpirationTime(),
+            qrImageUrl: uploadedFile
         };
     } catch (error) {
         console.error('Error generating and uploading QR code:', error);
